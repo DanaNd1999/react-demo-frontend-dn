@@ -21,6 +21,7 @@ import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import Login from "./Components/Auth/LogIn";
 
 import Api from "./Components/Auth/Api";
+import Card from "./Components/Helpers/Card";
 
 function App() {
   const { getToken } = Api();
@@ -60,31 +61,26 @@ function App() {
           </div>
         </Container>
       </Navbar>
-      <div className="container mt-5">
-        <div className="row justify-content-center">
-          <div className="col-md-12">
-            <Routes>
-              <Route path="dashboard" element={<Main />} />
-              <Route path="users">
-                <Route index element={<UserIndex />} />
-                <Route path="create" element={<UserCreate />} />
-                <Route path=":id/edit" element={<UserEdit />} />
-              </Route>
-              <Route path="roles">
-                <Route index element={<RoleIndex />} />
-                <Route path="create" element={<RoleCreate />} />
-                <Route path=":id/edit" element={<RoleEdit />} />
-              </Route>
-              <Route path="permissions">
-                <Route index element={<PermissionIndex />} />
-                <Route path="create" element={<PermissionCreate />} />
-                <Route path=":id/edit" element={<PermissionEdit />} />
-              </Route>
-            </Routes>
-          </div>
-        </div>
-      </div>
-      {/* </AuthContext.Provider> */}
+      <Card>
+        <Routes>
+          <Route path="dashboard" element={<Main />} />
+          <Route path="users">
+            <Route index element={<UserIndex />} />
+            <Route path="create" element={<UserCreate />} />
+            <Route path=":id/edit" element={<UserEdit />} />
+          </Route>
+          <Route path="roles">
+            <Route index element={<RoleIndex />} />
+            <Route path="create" element={<RoleCreate />} />
+            <Route path=":id/edit" element={<RoleEdit />} />
+          </Route>
+          <Route path="permissions">
+            <Route index element={<PermissionIndex />} />
+            <Route path="create" element={<PermissionCreate />} />
+            <Route path=":id/edit" element={<PermissionEdit />} />
+          </Route>
+        </Routes>
+      </Card>
     </>
   );
 }
